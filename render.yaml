@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: estateapp-web
+    env: python
+    plan: free
+    region: oregon
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn estate.wsgi:application --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: DEBUG
+        value: "false"
+      - key: PORT
+        value: "10000"
