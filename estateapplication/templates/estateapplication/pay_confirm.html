@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+	<div class="col-md-6">
+		<div class="card">
+			<div class="card-body">
+				<h3 class="card-title">Confirm Payment for {{ listing.title }}</h3>
+				<p class="card-text">Price: ${{ listing.price }}</p>
+				<form method="post">{% csrf_token %}
+					<button type="submit" class="btn btn-success">Confirm Payment</button>
+					<a href="{% url 'listing_detail' listing.pk %}" class="btn btn-secondary ms-2">Cancel</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

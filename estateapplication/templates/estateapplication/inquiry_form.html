@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+	<div class="col-md-8">
+		<h2>Inquiry for {{ listing.title }}</h2>
+		<form method="post" class="mt-3">{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit" class="btn btn-primary">Send Inquiry</button>
+		</form>
+	</div>
+</div>
+{% endblock %}

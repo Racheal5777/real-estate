@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Email: {{ filename }}</h2>
+<pre style="white-space:pre-wrap; background:#111; padding:1rem; border-radius:4px;">{{ content }}</pre>
+<p><a href="{% url 'email_list' %}">Back to emails</a></p>
+{% endblock %}

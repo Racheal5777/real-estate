@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Payment Provider (Stub)</h1>
+<p>You're paying for: <strong>{{ listing.title }}</strong></p>
+<p>Amount: ${{ listing.price }}</p>
+<p>Session: {{ session_id }}</p>
+<form method="post" action="{% url 'pay_listing' listing.pk %}">
+  {% csrf_token %}
+  <p><label>Card number (fake): <input name="card_number" value="4242424242424242"></label></p>
+  <p><label>Expiry (MM/YY): <input name="expiry" value="12/34"></label></p>
+  <p><label>CVC: <input name="cvc" value="123"></label></p>
+  <input type="hidden" name="payment_session_id" value="{{ session_id }}">
+  <button type="submit">Complete Payment (stub)</button>
+</form>
+<p>This is a simulated payment provider for development/testing. No real money is transferred.</p>
+{% endblock %}
